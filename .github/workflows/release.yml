@@ -13,6 +13,10 @@ on:
 permissions:
   contents: write
 
+env:
+  # Opt into Node.js 24 now (Node 20 is deprecated on GitHub Actions, removed Sep 2026).
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
@@ -47,7 +51,7 @@ jobs:
         run: npm run compile
 
       - name: Package VSIX
-        run: npx --yes @vscode/vsce package --baseContentUrl . --baseImagesUrl .
+        run: npx --yes @vscode/vsce package
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

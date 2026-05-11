@@ -18,6 +18,14 @@
   "main": "./out/extension.js",
   "icon": "icon.png",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mahomaho/runtime-python-lsp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mahomaho/runtime-python-lsp/issues"
+  },
+  "homepage": "https://github.com/mahomaho/runtime-python-lsp#readme",
   "contributes": {
     "configuration": {
       "title": "Runtime Python LSP",

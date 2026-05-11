@@ -1,0 +1,55 @@
+{
+  "name": "runtime-python-lsp",
+  "displayName": "Runtime-Aware Python LSP",
+  "description": "Live, runtime-driven Python completions, signature help, and hovers from a paused debug session",
+  "version": "0.0.1",
+  "publisher": "automat",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Debuggers"
+  ],
+  "activationEvents": [
+    "onDebug",
+    "onLanguage:python"
+  ],
+  "main": "./out/extension.js",
+  "icon": "icon.png",
+  "license": "MIT",
+  "contributes": {
+    "configuration": {
+      "title": "Runtime Python LSP",
+      "properties": {
+        "runtimePythonLsp.trace.dap": {
+          "type": "boolean",
+          "default": false,
+          "description": "Log DAP stopped/continued events to the output channel."
+        },
+        "runtimePythonLsp.evaluateTimeoutMs": {
+          "type": "number",
+          "default": 5000,
+          "description": "Timeout for DAP evaluate requests, in milliseconds."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./ && node -e \"require('fs').copyFileSync('src/helper.py','out/helper.py')\"",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^2.5.2",
+    "glob": "^10.3.10",
+    "mocha": "^10.3.0",
+    "typescript": "^5.4.0"
+  }
+}

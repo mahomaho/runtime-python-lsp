@@ -1,0 +1,13 @@
+.vscode/**
+.vscode-test/**
+src/**
+scripts/**
+node_modules/**
+out/test/**
+out/**/*.map
+out/**/*.test.js
+.gitignore
+tsconfig.json
+runtime-python-lsp-spec.md
+matrap-icon.svg
+*.vsix

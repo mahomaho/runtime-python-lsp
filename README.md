@@ -2,11 +2,25 @@
 
 ![Runtime-Aware Python LSP icon](icon.png)
 
+[![Latest release](https://img.shields.io/github/v/release/mahomaho/runtime-python-lsp)](https://github.com/mahomaho/runtime-python-lsp/releases/latest)
+
 A VS Code extension that augments Python language support with **live, runtime-driven** completions, signature help, and hovers — sourced from a **paused Python debug session** via the Debug Adapter Protocol.
 
 When you set a breakpoint and the debugger pauses, this extension introspects the *actual* Python objects sitting on the stack and surfaces what `dir(obj)`, `getattr(obj, name)`, and `inspect.signature(obj)` can see — including dynamically generated attributes, proxies, and AUTOSAR-style getters that Pylance can never know about because they only exist at runtime.
 
 It runs **alongside** Pylance, not instead of it.
+
+## Install
+
+Download the latest `.vsix` from the [releases page](https://github.com/mahomaho/runtime-python-lsp/releases/latest), then either:
+
+- In VS Code: open the Extensions panel, click the `…` menu, choose **Install from VSIX…**, and pick the downloaded file
+- From a terminal:
+
+  ```bash
+  gh release download --repo mahomaho/runtime-python-lsp --pattern '*.vsix'
+  code --install-extension runtime-python-lsp-*.vsix
+  ```
 
 ---
 

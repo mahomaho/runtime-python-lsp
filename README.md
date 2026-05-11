@@ -1,5 +1,7 @@
 # Runtime-Aware Python LSP
 
+![Runtime-Aware Python LSP icon](icon.png)
+
 A VS Code extension that augments Python language support with **live, runtime-driven** completions, signature help, and hovers — sourced from a **paused Python debug session** via the Debug Adapter Protocol.
 
 When you set a breakpoint and the debugger pauses, this extension introspects the *actual* Python objects sitting on the stack and surfaces what `dir(obj)`, `getattr(obj, name)`, and `inspect.signature(obj)` can see — including dynamically generated attributes, proxies, and AUTOSAR-style getters that Pylance can never know about because they only exist at runtime.
@@ -53,10 +55,10 @@ When no debug session is paused, the providers no-op and Pylance handles everyth
 
 ## Settings
 
-| Setting | Default | What it does |
-|---------|---------|--------------|
-| `runtimePythonLsp.evaluateTimeoutMs` | `5000` | Per-`evaluate` timeout in milliseconds. Bump if you have heavy AUTOSAR-style objects. |
-| `runtimePythonLsp.trace.dap` | `false` | Logs verbose DAP events to the **Runtime Python LSP** output channel. |
+| Setting                              | Default | What it does                                                                          |
+| ------------------------------------ | ------- | ------------------------------------------------------------------------------------- |
+| `runtimePythonLsp.evaluateTimeoutMs` | `5000`  | Per-`evaluate` timeout in milliseconds. Bump if you have heavy AUTOSAR-style objects. |
+| `runtimePythonLsp.trace.dap`         | `false` | Logs verbose DAP events to the **Runtime Python LSP** output channel.                 |
 
 ## Caveats — re-running calls
 
@@ -92,7 +94,7 @@ To launch the extension in a development host: open this folder in VS Code and p
 
 ## Project layout
 
-```
+```text
 src/
   extension.ts             - activate(), provider registration, DAP tracker
   debugBridge.ts           - DAP evaluate, helper injection, base64/JSON wire format
